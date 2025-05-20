@@ -1,2 +1,25 @@
 Beolvasás fájlból:
 ________________________________________________________
+// Létrehozunk egy 'lista' nevű Listát, ami Kutya típusú objektumokat fog tárolni.
+List<FŐOSZTALY-NEVE> LISTA-NEVE = new List<FŐOSZTALY-NEVE>(); //FŐOSZTALY-NEVE pl.: Kutya
+
+// Létrehozunk egy StreamReader példányt, ami megnyitja az 'adatok.csv' fájlt olvasásra.
+StreamReader sr = new StreamReader(
+    path: @"..\..\..\src\adatok.csv",
+    encoding: System.Text.Encoding.UTF8
+);
+
+sr.ReadLine();  //első sor skip
+
+// Amíg a fájl végére nem értünk, ciklusban olvassuk a sorokat:
+while (!sr.EndOfStream)
+{
+
+    lista.Add(new Kutya(sr.ReadLine())); //Listához való hozzá adás
+}
+
+foreach (var item in lista)      // Végigiterálunk a listán, és kiírjuk a kutyák adatait a konzolra.
+{
+    Console.WriteLine(item.ToString());
+}
+________________________________________________________
